@@ -5,16 +5,14 @@ before_install:
   - echo "We are in the Docker folder!!!"
 script:
   - docker-compose build
-travis_run_after_script:
+before_deploy:
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
 deploy:
-  - provider: script
-    script:
-        docker push dhecastro90/mysql-person-restful-crud;
-        docker push dhecastro90/person-restful-crud;
-    on:
-      branch:
-        only:
-        - main
+  provider: script
+  script:
+    docker push dhecastro90/mysql-person-restful-crud;
+    docker push dhecastro90/person-restful-crud;
+  on:
+    branch: main
 notifications:
   email: false
