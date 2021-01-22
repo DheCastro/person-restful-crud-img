@@ -1,0 +1,18 @@
+language: bash
+services: docker
+before_install:
+  - cd person-restful-crud/
+  - echo "We are in the Docker folder!!!"
+script:
+  - docker-compose build
+before_deploy:
+  - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+deploy:
+  provider: script
+  script:
+    docker push dhecastro90/mysql-person-restful-crud;
+    docker push dhecastro90/person-restful-crud;
+  on:
+    branch: master
+notifications:
+  email: false
