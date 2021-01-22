@@ -8,14 +8,13 @@ script:
 before_deploy:
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
 deploy:
-  provider: script
-  script:
-    docker push dhecastro90/mysql-person-restful-crud;
-    docker push dhecastro90/person-restful-crud;
-  on:
-    repo: DheCastro/person-restful-crud-img
-    branch:
-      only:
+  - provider: script
+    script:
+        docker push dhecastro90/mysql-person-restful-crud;
+        docker push dhecastro90/person-restful-crud;
+    on:
+      branch:
+        only:
         - main
 notifications:
   email: false
