@@ -12,8 +12,9 @@ deploy:
   script:
     docker push dhecastro90/mysql-person-restful-crud;
     docker push dhecastro90/person-restful-crud;
-branches:
-  only:
-  - main
+  on:
+    branches:    
+      only:     
+        - master
 notifications:
   email: false
