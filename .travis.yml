@@ -16,6 +16,6 @@ deploy:
     repo: DheCastro/person-restful-crud-img
     branches:
       only:
-        - main
+        - develop
 notifications:
   email: false
