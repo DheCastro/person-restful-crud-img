@@ -15,6 +15,6 @@ deploy:
   on:
     branches:    
       only:     
-        - master
+        - main
 notifications:
   email: false
