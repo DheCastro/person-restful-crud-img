@@ -13,8 +13,9 @@ deploy:
     docker push dhecastro90/mysql-person-restful-crud;
     docker push dhecastro90/person-restful-crud;
   on:
-    branches:    
-      only:     
+    repo: DheCastro/person-restful-crud-img
+    branches:
+      only:
         - main
 notifications:
   email: false
