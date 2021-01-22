@@ -14,8 +14,8 @@ deploy:
     docker push dhecastro90/person-restful-crud;
   on:
     repo: DheCastro/person-restful-crud-img
-    branches:
+    branch:
       only:
-        - develop
+        - main
 notifications:
   email: false
