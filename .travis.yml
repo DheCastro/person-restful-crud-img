@@ -5,7 +5,7 @@ before_install:
   - echo "We are in the Docker folder!!!"
 script:
   - docker-compose build
-before_deploy:
+travis_run_after_script:
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
 deploy:
   - provider: script
